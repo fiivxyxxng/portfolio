@@ -44,7 +44,7 @@ export function Navigation() {
           </motion.div>
 
           <div className="hidden md:flex items-center space-x-8">
-            {['home', 'about', 'skills', 'projects', 'contact'].map(
+            {['home', 'about', 'skills', 'projects', 'education'].map(
               (item, index) => (
                 <motion.button
                   key={item}

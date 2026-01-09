@@ -3,75 +3,66 @@
 import * as React from 'react';
 import { motion } from 'motion/react';
 import { Card } from './ui/card';
-import { Button } from './ui/button';
 import { ExternalLink, Github } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function ProjectsSection() {
   const projects = [
     {
-      title: 'E-Commerce Platform',
+      title: '덕스타 - 애니메이션 투표 플랫폼',
       description:
-        'A full-stack e-commerce solution built with Next.js, TypeScript, and Stripe integration. Features include user authentication, product management, and real-time inventory tracking.',
-      image:
-        'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
-      technologies: ['Next.js', 'TypeScript', 'Stripe', 'PostgreSQL'],
-      github: '#',
-      live: '#',
+        'Next.js, TypeScript를 사용하여 구현된 애니메이션 투표 플랫폼입니다. 분기별 애니메이션에 투표하고 주간 차트 및 애니 시간표 확인, 리뷰 작성, 어워드 참여 등의 기능을 제공합니다. 프론트엔드 개발자로 참여하고 있습니다.',
+      image: '/duckstar-preview.png',
+      technologies: ['Next.js', 'TypeScript', 'Tailwind', 'TanStack Query'],
+      github: 'https://github.com/duckstar-team/duckstar',
+      live: 'https://duckstar.kr',
       featured: true,
     },
     {
-      title: 'Task Management App',
+      title: '무빙 - 이사 매칭 플랫폼',
       description:
-        'A collaborative project management tool with real-time updates, drag-and-drop functionality, and team collaboration features.',
-      image:
-        'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB'],
-      github: '#',
-      live: '#',
+        '고객과 이사 전문가 간 매칭을 도와주는 플랫폼입니다. 견적 요청, 알림 기능 및 OpenAI API를 연동한 AI 견적 기능을 구현하였습니다. 풀스택 개발로 참여하여 초기 프로젝트 구조 설계 및 AWS EC2 배포를 담당했습니다.',
+      image: '/moving-preview.png',
+      technologies: [
+        'Next.js',
+        'TypeScript',
+        'Tailwind',
+        'Server Sent Events',
+        'AWS',
+        'GitHub Actions',
+        'OpenAI API',
+      ],
+      github: 'https://github.com/az0319h/6th-Moving-4Team-FE',
+      live: 'https://moving-web.site/ko',
       featured: true,
     },
     {
-      title: 'Weather Dashboard',
+      title: '독스루 - 문서 번역 챌린지 플랫폼',
       description:
-        'A responsive weather application with location-based forecasts, interactive maps, and data visualization using Chart.js.',
-      image:
-        'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop',
-      technologies: ['Vue.js', 'Chart.js', 'OpenWeather API', 'Tailwind'],
-      github: '#',
-      live: '#',
+        '개발 관련 영어 문서를 함께 번역하며 작업물에 대한 피드백을 주고 받는 플랫폼입니다. 어드민 페이지, 인증인가 및 소셜 로그인 기능을 구현했습니다.',
+      image: '/docthru-preview.png',
+      technologies: ['Next.js', 'JavaScript', 'Tailwind', 'TanStack Query'],
+      github: 'https://github.com/JJOBO/6-Docthru-3team-FE',
+      live: 'https://6-docthru-3team-fe-dev.vercel.app',
       featured: false,
     },
     {
-      title: 'Social Media Analytics',
+      title: '공부의 숲 - 습관 관리 플랫폼',
       description:
-        'A dashboard for social media analytics with real-time data processing, custom visualizations, and automated reporting.',
-      image:
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
-      technologies: ['Python', 'Django', 'React', 'D3.js'],
-      github: '#',
-      live: '#',
+        '스터디를 생성하고 타이머를 통해 집중 시간을 기록하며 습관 관리 형성을 도와주는 플랫폼입니다. 습관 생성, 수정, 삭제 및 습관 기록표 조회 기능을 구현했습니다.',
+      image: '/studyforest-preview.png',
+      technologies: ['Vite', 'JavaScript', 'CSS Modules', 'React Router'],
+      github: 'https://github.com/JJOBO/6-StudyForest-1team-FE',
+      live: 'https://studyfore.netlify.app',
       featured: false,
     },
     {
-      title: 'AI Chat Interface',
+      title: '포트폴리오 웹사이트',
       description:
-        'An intelligent chat interface with natural language processing, context awareness, and multi-language support.',
-      image:
-        'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=400&fit=crop',
-      technologies: ['React', 'OpenAI API', 'Node.js', 'WebSocket'],
-      github: '#',
-      live: '#',
-      featured: false,
-    },
-    {
-      title: 'Portfolio Website',
-      description:
-        'A responsive portfolio website with smooth animations, dark theme, and optimized performance built with modern web technologies.',
-      image:
-        'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop',
-      technologies: ['Next.js', 'Framer Motion', 'Tailwind', 'TypeScript'],
-      github: '#',
+        '부드러운 애니메이션, 다크 테마, 최적화된 성능을 갖춘 모던 웹 기술로 구현한 반응형 포트폴리오 사이트입니다.',
+      image: '/portfolio-preview.png',
+      technologies: ['Next.js', 'Framer Motion', 'Tailwind', 'shadcn/ui'],
+      github: 'https://github.com/fiivxyxxng/portfolio',
       live: '#',
       featured: false,
     },
@@ -94,10 +85,6 @@ export function ProjectsSection() {
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-emerald-400 to-blue-400 mx-auto"></div>
-          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and
-            passion for web development
-          </p>
         </motion.div>
 
         {/* Featured Projects */}
@@ -110,14 +97,14 @@ export function ProjectsSection() {
               transition={{ delay: index * 0.2, duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card className="group bg-black/50 border-white/10 overflow-hidden hover:border-emerald-500/50 transition-all duration-500">
+              <Card className="h-full group bg-black/50 border-white/10 overflow-hidden hover:border-emerald-500/50 transition-all duration-500">
                 <div className="relative overflow-hidden">
                   <ImageWithFallback
                     src={project.image}
                     alt={project.title}
                     className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-300"></div>
                   <div className="absolute top-4 right-4 flex space-x-2">
                     <motion.a
                       href={project.github}
@@ -129,6 +116,8 @@ export function ProjectsSection() {
                     </motion.a>
                     <motion.a
                       href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       className="w-10 h-10 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
@@ -183,23 +172,27 @@ export function ProjectsSection() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="group bg-black/30 border-white/10 hover:border-white/30 transition-all duration-300 h-full">
-                <div className="relative overflow-hidden">
+              <Card className="group bg-black/30 overflow-hidden border-white/10 hover:border-white/30 transition-all duration-300 h-full">
+                <div className="relative">
                   <ImageWithFallback
                     src={project.image}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/40"></div>
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-all duration-300 group-hover:scale-105"></div>
                   <div className="absolute top-3 right-3 flex space-x-2">
                     <a
                       href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
                     >
                       <Github className="w-4 h-4" />
                     </a>
                     <a
                       href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-8 h-8 bg-black/70 rounded-full flex items-center justify-center text-white hover:bg-emerald-500 transition-all duration-300"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -215,7 +208,7 @@ export function ProjectsSection() {
                     {project.description}
                   </p>
                   <div className="flex flex-wrap gap-1">
-                    {project.technologies.slice(0, 3).map((tech) => (
+                    {project.technologies.map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-1 bg-gray-700 text-gray-300 rounded text-xs"
@@ -229,21 +222,6 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mt-12"
-        >
-          <Button
-            variant="outline"
-            className="border-emerald-500/50 text-emerald-400 hover:bg-emerald-500/10 px-8 py-3"
-          >
-            View All Projects
-          </Button>
-        </motion.div>
       </div>
     </section>
   );

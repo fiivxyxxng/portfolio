@@ -2,43 +2,76 @@
 
 import * as React from 'react';
 import { motion } from 'motion/react';
-import { Card } from './ui/card';
-import { Button } from './ui/button';
-import { Input } from './ui/input';
-import { Textarea } from './ui/textarea';
-import { Github, Linkedin, Mail, Twitter, MapPin, Phone } from 'lucide-react';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './ui/card';
+import {
+  Mail,
+  MapPin,
+  Phone,
+  BookOpen,
+  GraduationCap,
+  Building,
+} from 'lucide-react';
+import { Badge } from './ui/badge';
 
 export function ContactSection() {
+  const education = [
+    {
+      title: '홍익대학교',
+      institution: '컴퓨터공학과',
+      period: '2021.03 - 2025.02',
+      description: '컴퓨터공학 학사 학위 취득',
+      icon: <GraduationCap className="w-5 h-5" />,
+    },
+    {
+      title: '풀스택 엔지니어 부트캠프',
+      institution: '코드잇 스프린트',
+      period: '2025.01 - 2025.08',
+      description: '프론트/백엔드 기술 스택 학습 및 팀 프로젝트 진행',
+      icon: <BookOpen className="w-5 h-5" />,
+    },
+  ];
+
+  const courses = [
+    {
+      title: '프론트엔드 개발(인턴)',
+      institution: 'DigiForet',
+      period: '2025.10 - 2025.11',
+      description:
+        'Babylon.js를 활용한 3D Model 업로드 및 뷰어 제공 플랫폼 클론 프로젝트 개발',
+      skills: ['React', 'Vite', 'TypeScript', 'Tailwind CSS', 'Babylon.js'],
+      icon: <Building className="w-5 h-5" />,
+    },
+  ];
+
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'alex.johnson@email.com',
-      href: 'mailto:alex.johnson@email.com',
+      value: 'scx200800@gmail.com',
+      href: 'mailto:scx200800@gmail.com',
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      value: '+82 010-9906-7265',
+      href: 'tel:+8201099067230',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
-      href: '#',
+      value: 'Seoul, South Korea',
+      href: 'https://www.google.com/maps/place/Seoul,+South+Korea/@37.566535,126.9780041,10z/data=!3m1!4b1!4m6!3m5!1s0x357ca3e925c2b3eb:0xf393a87a44aab82!8m2!3d37.566535!4d126.9780041!16zL20vMDJhY2d1?entry=ttu&g_ep=EgoyMDI1MDEwMi4wIKXMDSoASAFQAw%3D%3D',
     },
   ];
 
-  const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Mail, href: '#', label: 'Email' },
-  ];
-
   return (
-    <section id="contact" className="py-20 bg-black">
+    <section id="education" className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,83 +80,128 @@ export function ContactSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl text-white mb-6">Get In Touch</h2>
+          <h2 className="text-4xl md:text-5xl text-white mb-6">
+            Education & Experience
+          </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto"></div>
-          <p className="text-gray-400 mt-6 max-w-2xl mx-auto">
-            I'm always interested in new opportunities and interesting projects.
-            Let's discuss how we can work together!
-          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
+          {/* Education & Experience */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <Card className="p-8 bg-gray-900/50 border-white/10">
-              <h3 className="text-2xl text-white mb-6">Send me a message</h3>
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-gray-300 text-sm mb-2 block">
-                      First Name
-                    </label>
-                    <Input
-                      placeholder="Your first name"
-                      className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-gray-300 text-sm mb-2 block">
-                      Last Name
-                    </label>
-                    <Input
-                      placeholder="Your last name"
-                      className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
-                    />
-                  </div>
-                </div>
+            <div className="space-y-6">
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="text-2xl text-white"
+              >
+                Education
+              </motion.h3>
+              {education.map((edu, index) => (
+                <motion.div
+                  key={edu.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (index + 1) * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                >
+                  <Card key={index} className="bg-gray-900/50 border-white/10">
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-3">
+                          <div className="flex items-center h-8">
+                            {edu.icon}
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">
+                              {edu.title}
+                            </CardTitle>
+                            <CardDescription className="text-base">
+                              {edu.institution}
+                            </CardDescription>
+                          </div>
+                        </div>
+                        <Badge variant="outline">{edu.period}</Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-2">
+                        {edu.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
 
-                <div>
-                  <label className="text-gray-300 text-sm mb-2 block">
-                    Email
-                  </label>
-                  <Input
-                    type="email"
-                    placeholder="your.email@example.com"
-                    className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-gray-300 text-sm mb-2 block">
-                    Subject
-                  </label>
-                  <Input
-                    placeholder="Project discussion"
-                    className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-gray-300 text-sm mb-2 block">
-                    Message
-                  </label>
-                  <Textarea
-                    placeholder="Tell me about your project..."
-                    rows={5}
-                    className="bg-black/50 border-white/20 text-white placeholder:text-gray-500 focus:border-emerald-500 resize-none"
-                  />
-                </div>
-
-                <Button className="w-full bg-emerald-500 hover:bg-emerald-600 text-white py-3">
-                  Send Message
-                </Button>
-              </form>
-            </Card>
+              <motion.h3
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{
+                  delay: (education.length + 1) * 0.1,
+                  duration: 0.6,
+                }}
+                viewport={{ once: true }}
+                className="text-2xl text-white"
+              >
+                Work Experience
+              </motion.h3>
+              {courses.map((course, index) => (
+                <motion.div
+                  key={course.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: (education.length + 2 + index) * 0.1,
+                    duration: 0.6,
+                  }}
+                  viewport={{ once: true }}
+                >
+                  <Card key={index} className="bg-gray-900/50 border-white/10">
+                    <CardHeader>
+                      <div className="flex items-start justify-between">
+                        <div className="flex items-start gap-3">
+                          <div className="flex items-center h-8">
+                            {course.icon}
+                          </div>
+                          <div>
+                            <CardTitle className="text-lg">
+                              {course.title}
+                            </CardTitle>
+                            <CardDescription className="text-base">
+                              {course.institution}
+                            </CardDescription>
+                          </div>
+                        </div>
+                        <Badge variant="outline">{course.period}</Badge>
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-muted-foreground mb-3">
+                        {course.description}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {course.skills.map((skill, skillIndex) => (
+                          <Badge
+                            key={skillIndex}
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {skill}
+                          </Badge>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Contact Info */}
@@ -132,15 +210,10 @@ export function ContactSection() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-8"
+            className="space-y-6"
           >
             <div>
-              <h3 className="text-2xl text-white mb-6">Let's connect</h3>
-              <p className="text-gray-400 leading-relaxed mb-8">
-                I'm currently available for freelance work and full-time
-                opportunities. Whether you have a project in mind or just want
-                to chat about technology, I'd love to hear from you.
-              </p>
+              <h3 className="text-2xl text-white">Get In Touch</h3>
             </div>
 
             <div className="space-y-4">
@@ -164,27 +237,6 @@ export function ContactSection() {
                 </motion.a>
               ))}
             </div>
-
-            <div className="pt-8">
-              <h4 className="text-white text-lg mb-4">Follow me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1, duration: 0.3 }}
-                    viewport={{ once: true }}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center text-white hover:bg-emerald-500 hover:text-white transition-all duration-300"
-                  >
-                    <social.icon className="w-5 h-5" />
-                  </motion.a>
-                ))}
-              </div>
-            </div>
           </motion.div>
         </div>
 
@@ -197,8 +249,7 @@ export function ContactSection() {
           className="border-t border-white/10 mt-16 pt-8 text-center"
         >
           <p className="text-gray-400">
-            © 2025 Alex Johnson. Designed &amp; Built with ❤️ using React and
-            Tailwind CSS.
+            © 2026 Hayoung Oh. Built with Figma Make and Vite.
           </p>
         </motion.div>
       </div>

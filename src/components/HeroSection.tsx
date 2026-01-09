@@ -3,11 +3,11 @@
 import * as React from 'react';
 import { motion } from 'motion/react';
 import { Button } from './ui/button';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import { ArrowDown, Github, Mail } from 'lucide-react';
 
 export function HeroSection() {
-  const scrollToProjects = () => {
-    const element = document.getElementById('projects');
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
@@ -64,24 +64,8 @@ export function HeroSection() {
             transition={{ delay: 0.4 }}
             className="text-5xl md:text-7xl text-white mb-6"
           >
-            Alex Johnson
+            Hayoung Oh
           </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-2xl md:text-4xl text-gray-300 mb-8"
-          >
-            I'm a{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
-              Full-Stack Developer
-            </span>{' '}
-            specializing in{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
-              Modern Web Applications
-            </span>
-          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -89,9 +73,16 @@ export function HeroSection() {
             transition={{ delay: 0.8 }}
             className="text-gray-400 text-lg max-w-2xl mx-auto mb-8"
           >
-            I craft exceptional digital experiences using cutting-edge
-            technologies like React, Node.js, and TypeScript. Passionate about
-            clean code, user experience, and bringing ideas to life.
+            사용자 경험을 중시하며 깔끔하고 직관적인 인터페이스를 만드는 것을
+            좋아하는{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+              프론트엔드 개발자
+            </span>
+            입니다. 주로 Next.js와 TypeScript를 활용한{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
+              모던 웹 애플리케이션
+            </span>
+            을 개발하고 있습니다.
           </motion.p>
 
           <motion.div
@@ -101,7 +92,7 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             <Button
-              onClick={scrollToProjects}
+              onClick={() => scrollToSection('projects')}
               className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               View My Work
@@ -109,13 +100,14 @@ export function HeroSection() {
 
             <div className="flex items-center space-x-4">
               {[
-                { icon: Github, href: '#' },
-                { icon: Linkedin, href: '#' },
-                { icon: Mail, href: '#' },
+                { icon: Github, href: 'https://github.com/fiivxyxxng' },
+                { icon: Mail, href: 'mailto:scx200800@gmail.com' },
               ].map(({ icon: Icon, href }, index) => (
                 <motion.a
                   key={index}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 1.2 + index * 0.1 }}
@@ -132,15 +124,18 @@ export function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+          className="absolute left-1/2 transform -translate-x-1/2"
+          style={{ translateY: '100px' }}
         >
-          <motion.div
+          <motion.button
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="text-white/60"
+            className="text-white/60 hover:text-white"
+            onClick={() => scrollToSection('about')}
+            aria-label="아래로 스크롤"
           >
             <ArrowDown className="w-6 h-6" />
-          </motion.div>
+          </motion.button>
         </motion.div>
       </div>
     </section>
